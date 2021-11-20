@@ -10,6 +10,7 @@ public class Customer {
 	private int age;
 	private String city;
 	private String policy;
+	private String server;
 
 	public String getName() {
 		return name;
@@ -49,6 +50,14 @@ public class Customer {
 
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
+	}
+
+	public String getServer() {
+		return server;
+	}
+
+	public void setServer(String server) {
+		this.server = server;
 	}
 
 }

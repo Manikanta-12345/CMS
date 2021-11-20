@@ -1,5 +1,7 @@
 package com.cms.controllers;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -26,13 +28,15 @@ public class CustomerController {
 
 	}
 	@GetMapping(value = "/customers")
-	public ResponseEntity<Customer> getCustomers() {
+	public ResponseEntity<Customer> getCustomers() throws UnknownHostException {
 		String customerId = UUID.randomUUID().toString();
         Customer customer=new Customer();
 		customer.setCustomerId(customerId);
 		customer.setAge(40);
 		customer.setCity("Hyderabad");
 		customer.setName("Alex");
+		customer.setPolicy("Jeevan Umang");
+		customer.setServer(InetAddress.getLocalHost().toString());
 		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 
 	}
